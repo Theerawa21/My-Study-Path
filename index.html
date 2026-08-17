@@ -4,8 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="theme-color" content="#0f766e" />
-  <title>My Study Path | ระบบสำรวจความสนใจและวางแผนการเรียนต่อ</title>
-  <meta name="description" content="ระบบสำรวจความสนใจและวางแผนเส้นทางการเรียนต่อหลังจบชั้นมัธยมศึกษาปีที่ 3" />
+  <title>My Study Path | วางแผนเส้นทางการเรียนต่อหลัง ม.3</title>
+  <meta name="description" content="My Study Path ระบบสำรวจความสนใจและวางแผนเส้นทางการเรียนต่อหลังจบชั้นมัธยมศึกษาปีที่ 3" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -33,27 +33,26 @@
     <section id="homeView" class="hero section-view">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow">สำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3</p>
-          <h1>รู้จักตัวเอง แล้วค่อยเลือกเส้นทางที่เหมาะกับเรา</h1>
-          <p class="hero-lead">สำรวจวิชาที่ชอบ สิ่งที่ถนัด เส้นทางหลังจบ ม.3 สถาบันที่อยู่ในใจ และอาชีพที่สนใจ เพื่อใช้ประกอบการตัดสินใจร่วมกับครูและผู้ปกครอง</p>
+          <h1>สำรวจตัวเองก่อนเลือกเส้นทางหลังจบ ม.3</h1>
+          <p class="hero-lead">My Study Path ช่วยให้นักเรียนสำรวจวิชาที่ชอบ สิ่งที่ทำได้ดี เส้นทางการเรียนต่อ สถาบันที่อยู่ในใจ และอาชีพที่สนใจ เพื่อใช้เป็นข้อมูลประกอบการตัดสินใจร่วมกับครูและผู้ปกครอง</p>
 
           <div class="login-card">
-            <label for="studentId">รหัสประจำตัวนักเรียน</label>
+            <label for="studentId">เข้าสู่ระบบนักเรียน</label>
             <div class="login-row">
-              <input id="studentId" class="input" inputmode="numeric" autocomplete="off" placeholder="กรอกรหัสประจำตัวนักเรียน" />
+              <input id="studentId" class="input" inputmode="numeric" autocomplete="off" placeholder="กรอกรหัสประจำตัวนักเรียน" aria-label="รหัสประจำตัวนักเรียน" />
               <button id="studentLoginBtn" class="btn btn-primary" type="button">เริ่มสำรวจ</button>
             </div>
             <p id="loginMessage" class="form-message"></p>
           </div>
 
-          <div class="hero-notes">
-            <span>ใช้เวลาไม่นาน</span>
-            <span>แก้ไขข้อมูลได้</span>
-            <span>ใช้เพื่อการแนะแนว</span>
+          <div class="hero-notes" aria-label="ข้อมูลสำคัญ">
+            <span>ใช้รหัสนักเรียนเท่านั้น</span>
+            <span>บันทึกร่างและกลับมาแก้ไขได้</span>
+            <span>ใช้ข้อมูลเพื่อการแนะแนว</span>
           </div>
         </div>
 
-        <div class="path-visual" aria-label="เส้นทางการเรียนต่อ">
+        <div class="path-visual" aria-label="ตัวเลือกเส้นทางการเรียนต่อหลังจบ ม.3">
           <div class="path-center">
             <span class="path-icon">✦</span>
             <strong>หลังจบ ม.3</strong>
@@ -109,9 +108,8 @@
       <div class="container teacher-wrap">
         <div class="teacher-head">
           <div>
-            <p class="eyebrow">Teacher Dashboard</p>
             <h1>ภาพรวมการสำรวจความสนใจ</h1>
-            <p class="muted">ติดตามนักเรียนที่ตอบแล้วและนักเรียนที่ควรได้รับการแนะแนวเพิ่มเติม</p>
+            <p class="muted">ติดตามเส้นทางที่นักเรียนสนใจ ดูระดับความมั่นใจ และค้นหานักเรียนที่ควรได้รับการแนะแนวเพิ่มเติม</p>
           </div>
           <button id="teacherLogoutBtn" class="btn btn-ghost" type="button">ออกจากหน้าครู</button>
         </div>
@@ -120,8 +118,8 @@
 
         <div class="table-card">
           <div class="table-tools">
-            <input id="teacherSearch" class="input" placeholder="ค้นหาชื่อ รหัส ห้อง แผน หรือสถาบัน" />
-            <select id="teacherFilter" class="input select-input">
+            <input id="teacherSearch" class="input" placeholder="ค้นหาชื่อ รหัส ห้อง แผน หรือสถาบัน" aria-label="ค้นหานักเรียน" />
+            <select id="teacherFilter" class="input select-input" aria-label="กรองสถานะนักเรียน">
               <option value="">ทุกสถานะ</option>
               <option value="ควรแนะแนว">ควรแนะแนว</option>
               <option value="ควรติดตาม">ควรติดตาม</option>
@@ -153,7 +151,7 @@
 
   <footer>
     <div class="container footer-inner">
-      <span>My Study Path</span>
+      <span><strong>My Study Path</strong></span>
       <span>ผลสำรวจใช้เพื่อประกอบการวางแผนและการแนะแนว ไม่ใช่การตัดสินแทนนักเรียน</span>
     </div>
   </footer>
