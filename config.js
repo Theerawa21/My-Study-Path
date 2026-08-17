@@ -1,6 +1,6 @@
 // Google Apps Script Web App API
 window.MY_STUDY_PATH_CONFIG = {
-  API_URL: 'https://script.google.com/macros/s/AKfycbw9XDJKPeXHHsGJ84tC8nFVkpLHx0pW0jv7JGNQzNGRdO9zBttA9mjnAMk5BE0r_xfDzQ/exec',
+  API_URL: 'https://script.google.com/macros/s/AKfycbxePDcjYOC58x84jTXUSnp1clgYcBF8hqzzuiPeRCmIrkyo1RneFOFBG6WczzOcJe4upA/exec',
   APP_NAME: 'My Study Path',
   SCHOOL_NAME: ''
 };
