@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0f766e" />
+  <title>My Study Path | ระบบสำรวจความสนใจและวางแผนการเรียนต่อ</title>
+  <meta name="description" content="ระบบสำรวจความสนใจและวางแผนเส้นทางการเรียนต่อหลังจบชั้นมัธยมศึกษาปีที่ 3" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div id="toast" class="toast" aria-live="polite"></div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" data-home>
+        <span class="brand-mark">M</span>
+        <span>
+          <strong>My Study Path</strong>
+          <small>ค้นหาทางที่ใช่ วางแผนอนาคตที่ชอบ</small>
+        </span>
+      </a>
+      <div class="header-actions">
+        <button class="btn btn-ghost" id="teacherOpenBtn" type="button">สำหรับครู</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="homeView" class="hero section-view">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">สำหรับนักเรียนชั้นมัธยมศึกษาปีที่ 3</p>
+          <h1>รู้จักตัวเอง แล้วค่อยเลือกเส้นทางที่เหมาะกับเรา</h1>
+          <p class="hero-lead">สำรวจวิชาที่ชอบ สิ่งที่ถนัด เส้นทางหลังจบ ม.3 สถาบันที่อยู่ในใจ และอาชีพที่สนใจ เพื่อใช้ประกอบการตัดสินใจร่วมกับครูและผู้ปกครอง</p>
+
+          <div class="login-card">
+            <label for="studentId">รหัสประจำตัวนักเรียน</label>
+            <div class="login-row">
+              <input id="studentId" class="input" inputmode="numeric" autocomplete="off" placeholder="กรอกรหัสประจำตัวนักเรียน" />
+              <button id="studentLoginBtn" class="btn btn-primary" type="button">เริ่มสำรวจ</button>
+            </div>
+            <p id="loginMessage" class="form-message"></p>
+          </div>
+
+          <div class="hero-notes">
+            <span>ใช้เวลาไม่นาน</span>
+            <span>แก้ไขข้อมูลได้</span>
+            <span>ใช้เพื่อการแนะแนว</span>
+          </div>
+        </div>
+
+        <div class="path-visual" aria-label="เส้นทางการเรียนต่อ">
+          <div class="path-center">
+            <span class="path-icon">✦</span>
+            <strong>หลังจบ ม.3</strong>
+            <small>ฉันอยากไปทางไหน?</small>
+          </div>
+          <div class="path-option option-a"><span>ม.4</span><small>สายสามัญ</small></div>
+          <div class="path-option option-b"><span>ปวช.</span><small>สายอาชีพ</small></div>
+          <div class="path-option option-c"><span>เฉพาะทาง</span><small>กีฬา · ดนตรี · ศิลปะ</small></div>
+          <div class="path-option option-d"><span>ยังไม่แน่ใจ</span><small>ค่อย ๆ สำรวจได้</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="studentView" class="section-view hidden">
+      <div class="container app-layout">
+        <aside class="profile-panel">
+          <div class="student-avatar" id="studentInitials">ST</div>
+          <h2 id="studentName">นักเรียน</h2>
+          <p id="studentMeta" class="muted">ม.3</p>
+          <div class="progress-wrap">
+            <div class="progress-label"><span>ความคืบหน้า</span><strong id="progressText">0%</strong></div>
+            <div class="progress-bar"><span id="progressBar"></span></div>
+          </div>
+          <nav id="stepNav" class="step-nav" aria-label="ขั้นตอนแบบสำรวจ"></nav>
+          <button id="studentLogoutBtn" class="btn btn-ghost full" type="button">ออกจากระบบ</button>
+        </aside>
+
+        <section class="wizard-panel">
+          <div class="wizard-head">
+            <div>
+              <p id="stepKicker" class="step-kicker">ขั้นตอนที่ 1</p>
+              <h2 id="stepTitle">รู้จักตัวเอง</h2>
+              <p id="stepDescription" class="muted">เลือกตามความรู้สึกจริงของเรา ไม่มีคำตอบถูกหรือผิด</p>
+            </div>
+            <span id="saveState" class="save-state">ยังไม่ได้บันทึก</span>
+          </div>
+
+          <div id="stepContent" class="wizard-content"></div>
+
+          <div class="wizard-actions">
+            <button id="prevBtn" class="btn btn-ghost" type="button">ย้อนกลับ</button>
+            <div class="action-right">
+              <button id="saveDraftBtn" class="btn btn-soft" type="button">บันทึกร่าง</button>
+              <button id="nextBtn" class="btn btn-primary" type="button">ถัดไป</button>
+            </div>
+          </div>
+          <p id="wizardMessage" class="form-message"></p>
+        </section>
+      </div>
+    </section>
+
+    <section id="teacherView" class="section-view hidden">
+      <div class="container teacher-wrap">
+        <div class="teacher-head">
+          <div>
+            <p class="eyebrow">Teacher Dashboard</p>
+            <h1>ภาพรวมการสำรวจความสนใจ</h1>
+            <p class="muted">ติดตามนักเรียนที่ตอบแล้วและนักเรียนที่ควรได้รับการแนะแนวเพิ่มเติม</p>
+          </div>
+          <button id="teacherLogoutBtn" class="btn btn-ghost" type="button">ออกจากหน้าครู</button>
+        </div>
+
+        <div id="kpiGrid" class="kpi-grid"></div>
+
+        <div class="table-card">
+          <div class="table-tools">
+            <input id="teacherSearch" class="input" placeholder="ค้นหาชื่อ รหัส ห้อง แผน หรือสถาบัน" />
+            <select id="teacherFilter" class="input select-input">
+              <option value="">ทุกสถานะ</option>
+              <option value="ควรแนะแนว">ควรแนะแนว</option>
+              <option value="ควรติดตาม">ควรติดตาม</option>
+              <option value="ปกติ">ปกติ</option>
+            </select>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>นักเรียน</th>
+                  <th>ห้อง</th>
+                  <th>เส้นทาง</th>
+                  <th>แผน/สาขา</th>
+                  <th>สถาบัน</th>
+                  <th>อาชีพ</th>
+                  <th>มั่นใจ</th>
+                  <th>สถานะ</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="teacherTableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>My Study Path</span>
+      <span>ผลสำรวจใช้เพื่อประกอบการวางแผนและการแนะแนว ไม่ใช่การตัดสินแทนนักเรียน</span>
+    </div>
+  </footer>
+
+  <dialog id="teacherDialog" class="modal">
+    <form method="dialog" class="modal-card" onsubmit="return false;">
+      <div class="modal-head">
+        <div>
+          <p class="step-kicker">สำหรับครู</p>
+          <h2>เข้าสู่ Dashboard</h2>
+        </div>
+        <button class="icon-btn" value="cancel" aria-label="ปิด">×</button>
+      </div>
+      <label for="teacherCode">รหัสครู</label>
+      <input id="teacherCode" class="input" type="password" autocomplete="current-password" placeholder="กรอกรหัสครู" />
+      <p id="teacherLoginMessage" class="form-message"></p>
+      <button id="teacherLoginBtn" class="btn btn-primary full" type="button">เข้าสู่ระบบครู</button>
+    </form>
+  </dialog>
+
+  <dialog id="noteDialog" class="modal">
+    <form method="dialog" class="modal-card wide" onsubmit="return false;">
+      <div class="modal-head">
+        <div>
+          <p class="step-kicker">บันทึกครูแนะแนว</p>
+          <h2 id="noteStudentName">นักเรียน</h2>
+        </div>
+        <button class="icon-btn" value="cancel" aria-label="ปิด">×</button>
+      </div>
+      <input id="noteStudentId" type="hidden" />
+      <label for="noteText">ความคิดเห็น/ข้อเสนอแนะ</label>
+      <textarea id="noteText" class="input textarea" rows="5" placeholder="บันทึกประเด็นที่พูดคุยหรือข้อเสนอแนะ"></textarea>
+      <label for="noteStatus">สถานะการให้คำปรึกษา</label>
+      <select id="noteStatus" class="input select-input">
+        <option value="ยังไม่ได้ให้คำปรึกษา">ยังไม่ได้ให้คำปรึกษา</option>
+        <option value="นัดให้คำปรึกษา">นัดให้คำปรึกษา</option>
+        <option value="ให้คำปรึกษาแล้ว">ให้คำปรึกษาแล้ว</option>
+        <option value="ติดตามเพิ่มเติม">ติดตามเพิ่มเติม</option>
+        <option value="ไม่มีประเด็นเพิ่มเติม">ไม่มีประเด็นเพิ่มเติม</option>
+      </select>
+      <p id="noteMessage" class="form-message"></p>
+      <button id="saveNoteBtn" class="btn btn-primary full" type="button">บันทึก</button>
+    </form>
+  </dialog>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
